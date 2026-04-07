@@ -473,6 +473,5 @@ def on_input(data):
 @app.route('/')
 def index(): return render_template('index.html')
 
-if __name__=='__main__':
-    port=int(os.environ.get('PORT',5000))
-    socketio.run(app, host='0.0.0.0', port=port, debug=False)
+if __name__ == "__main__":
+    socketio.run(app, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), allow_unsafe_werkzeug=True)
